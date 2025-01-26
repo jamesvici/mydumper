@@ -168,6 +168,7 @@ int main(int argc, char *argv[]) {
     print_int("updated-since",updated_since);
     print_string("partition-regex",partition_regex);
     print_string("omit-from-file",tables_skiplist_file);
+    print_string("omit-data-from-file",tables_skipdata_file);
     print_string("tables-list",tables_list);
     print_string("tidb-snapshot",tidb_snapshot);
     print_bool("no-locks",no_locks);

@@ -181,6 +181,9 @@ enum file_type process_filename(char *filename){
         m_critical("We don't expect to find resume files in a stream scenario");
       }
       break;
+    case NODATA:
+      g_warning("Not loading data file %s", filename);
+      break;
     case IGNORED:
       g_warning("Filename %s has been ignored", filename);
       break;

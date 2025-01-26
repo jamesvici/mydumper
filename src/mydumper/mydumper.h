@@ -26,5 +26,6 @@
 #include "../logging.h"
 #include "../set_verbose.h"
 #include "../tables_skiplist.h"
+#include "../tables_skipdata.h"
 #include "../regex.h"
 #include "../server_detect.h"

@@ -95,6 +95,7 @@ extern gchar *pmm_path;
 extern gchar *pmm_resolution ;
 extern gchar *set_names_str;
 extern gchar *tables_skiplist_file;
+extern gchar *tables_skipdata_file;
 extern gchar *tidb_snapshot;
 extern gchar *where_option;
 extern GHashTable *all_where_per_table;

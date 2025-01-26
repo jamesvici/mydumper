@@ -313,6 +313,9 @@ void thd_JOB_DUMP_ALL_DATABASES( struct thread_data *td, struct job *job){
       }
       g_mutex_unlock(db_tmp->ad_mutex);
     }
+    // If on skip datalist, don't create db dump, just schema from above
+    if (tables_skipdata_file && check_skipdata(row[0], NULL))
+      continue;
     create_job_to_dump_database(db_tmp, td->conf);
   }
   if (g_atomic_int_dec_and_test(&database_counter)) {

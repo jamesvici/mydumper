@@ -45,6 +45,7 @@ gboolean program_version = FALSE;
 
 gchar *tables_list = NULL;
 gchar *tables_skiplist_file = NULL;
+gchar *tables_skipdata_file = NULL;
 char **tables = NULL;
 
 gboolean no_stream = FALSE;
@@ -86,6 +87,10 @@ GOptionEntry common_entries[] = {
 GOptionEntry common_filter_entries[] = {
     {"omit-from-file", 'O', 0, G_OPTION_ARG_STRING, &tables_skiplist_file,
      "File containing a list of database.table entries to skip, one per line "
+     "(skips before applying regex option)",
+     NULL},
+    {"omit-data-from-file", 0, 0, G_OPTION_ARG_STRING, &tables_skipdata_file,
+     "File containing a list of database.table entries to do schema only, one per line "
      "(skips before applying regex option)",
      NULL},
     {"tables-list", 'T', 0, G_OPTION_ARG_STRING, &tables_list,

@@ -756,6 +756,8 @@ void send_lock_all_tables(MYSQL *conn){
         while ((row = mysql_fetch_row(res))) {
           if (tables_skiplist_file && check_skiplist(dt[0], row[0]))
             continue;
+          if (tables_skipdata_file && check_skipdata(dt[0], row[0]))
+            continue;
           if (is_mysql_special_tables(dt[0], row[0]))
             continue;
           if (!eval_regex(dt[0], row[0]))
@@ -798,6 +800,8 @@ void send_lock_all_tables(MYSQL *conn){
       while ((row = mysql_fetch_row(res))) {
         // no need to check if the tb exists in the tables.
         if (tables_skiplist_file && check_skiplist(row[0], row[1]))
+          continue;
+        if (tables_skipdata_file && check_skipdata(row[0], row[1]))
           continue;
         if (is_mysql_special_tables(row[0], row[1]))
           continue;
@@ -996,6 +1000,8 @@ void start_dump() {
   /* Process list of tables to omit if specified */
   if (tables_skiplist_file)
     read_tables_skiplist(tables_skiplist_file, &errors);
+  if (tables_skipdata_file)
+    read_tables_skipdata(tables_skipdata_file, &errors);
 
   initialize_regex(partition_regex);
 

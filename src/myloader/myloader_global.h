@@ -84,6 +84,7 @@ extern gchar *pmm_resolution ;
 extern gchar *set_names_str;
 extern gchar *source_db;
 extern gchar *tables_skiplist_file;
+extern gchar *tables_skipdata_file;
 extern GHashTable *db_hash;
 extern GHashTable * load_data_list;
 extern GHashTable *tbl_hash;
