@@ -205,54 +205,55 @@ enum file_type {
   INTERMEDIATE_ENDED };
 
 static inline
-const char *ft2str(enum file_type ft) {
+const char *ft2str(enum file_type ft)
+{
   switch (ft) {
-    case INIT:
-      return "INIT";
-    case SCHEMA_TABLESPACE:
-      return "SCHEMA_TABLESPACE";
-    case SCHEMA_CREATE:
-      return "SCHEMA_CREATE";
-    case CJT_RESUME:
-      return "CJT_RESUME";
-    case SCHEMA_TABLE:
-      return "SCHEMA_TABLE";
-    case DATA:
-      return "DATA";
-    case SCHEMA_VIEW:
-      return "SCHEMA_VIEW";
-    case SCHEMA_SEQUENCE:
-      return "SCHEMA_SEQUENCE";
-    case SCHEMA_TRIGGER:
-      return "SCHEMA_TRIGGER";
-    case SCHEMA_POST:
-      return "SCHEMA_POST";
-    case CHECKSUM:
-      return "CHECKSUM";
-    case METADATA_GLOBAL:
-      return "METADATA_GLOBAL";
-    case RESUME:
-      return "RESUME";
-    case IGNORED:
-      return "IGNORED";
-    case NODATA:
+  case INIT:
+    return "INIT";
+  case SCHEMA_TABLESPACE:
+    return "SCHEMA_TABLESPACE";
+  case SCHEMA_CREATE:
+    return "SCHEMA_CREATE";
+  case CJT_RESUME:
+    return "CJT_RESUME";
+  case SCHEMA_TABLE:
+    return "SCHEMA_TABLE";
+  case DATA:
+    return "DATA";
+  case SCHEMA_VIEW:
+    return "SCHEMA_VIEW";
+  case SCHEMA_SEQUENCE:
+    return "SCHEMA_SEQUENCE";
+  case SCHEMA_TRIGGER:
+    return "SCHEMA_TRIGGER";
+  case SCHEMA_POST:
+    return "SCHEMA_POST";
+  case CHECKSUM:
+    return "CHECKSUM";
+  case METADATA_GLOBAL:
+    return "METADATA_GLOBAL";
+  case RESUME:
+    return "RESUME";
+  case IGNORED:
+    return "IGNORED";
+  case NODATA:
       return "NODATA";
-    case LOAD_DATA:
-      return "LOAD_DATA";
-    case SHUTDOWN:
-      return "SHUTDOWN";
-    case INCOMPLETE:
-      return "INCOMPLETE";
-    case DO_NOT_ENQUEUE:
-      return "DO_NOT_ENQUEUE";
-    case THREAD:
-      return "THREAD";
-    case INDEX:
-      return "INDEX";
-    case INTERMEDIATE_ENDED:
-      return "INTERMEDIATE_ENDED";
-    default:
-      return "UNKNOWN";
+  case LOAD_DATA:
+    return "LOAD_DATA";
+  case SHUTDOWN:
+    return "SHUTDOWN";
+  case INCOMPLETE:
+    return "INCOMPLETE";
+  case DO_NOT_ENQUEUE:
+    return "DO_NOT_ENQUEUE";
+  case THREAD:
+    return "THREAD";
+  case INDEX:
+    return "INDEX";
+  case INTERMEDIATE_ENDED:
+    return "INTERMEDIATE_ENDED";
   }
+  g_assert(0);
+  return NULL;
 }
 #endif
