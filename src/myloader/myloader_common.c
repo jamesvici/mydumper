@@ -435,14 +435,15 @@ enum file_type get_file_type (const char * filename){
 
   // if tables_skipdata_file exists, see if we are skipping data load
   if (tables_skipdata_file && (m_filename_has_suffix(filename, ".sql") || m_filename_has_suffix(filename, ".dat"))) {
-    gchar **split = g_strsplit(filename, ".", 2);
-    if (split && split[0] && split[1]) {
-      if (check_skipdata(split[0], split[1])) {
-        g_strfreev(split);
-        return NO_DATA;
-      }
-      g_strfreev(split);
+    gchar *db_name, *table_name;
+    get_database_table_from_file(filename,"-",&db_name,&table_name);
+    if (check_skiplist(db_name, table_name)){
+      g_free(db_name);
+      g_free(table_name);
+      return NO_DATA;
     }
+    g_free(db_name);
+    g_free(table_name);
   }
 
   if (m_filename_has_suffix(filename, ".sql") )
