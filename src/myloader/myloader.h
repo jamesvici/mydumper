@@ -195,7 +195,7 @@ enum file_type {
   METADATA_GLOBAL, 
   RESUME, 
   IGNORED,
-  NODATA,
+  NO_DATA,
   LOAD_DATA, 
   SHUTDOWN, 
   INCOMPLETE,
@@ -236,8 +236,8 @@ const char *ft2str(enum file_type ft)
     return "RESUME";
   case IGNORED:
     return "IGNORED";
-  case NODATA:
-      return "NODATA";
+  case NO_DATA:
+      return "NO_DATA";
   case LOAD_DATA:
     return "LOAD_DATA";
   case SHUTDOWN:

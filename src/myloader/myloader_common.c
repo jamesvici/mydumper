@@ -439,7 +439,7 @@ enum file_type get_file_type (const char * filename){
     if (split && split[0] && split[1]) {
       if (check_skipdata(split[0], split[1])) {
         g_strfreev(split);
-        return NODATA;
+        return NO_DATA;
       }
       g_strfreev(split);
     }
