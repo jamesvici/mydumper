@@ -437,7 +437,7 @@ enum file_type get_file_type (const char * filename){
   if (tables_skipdata_file && (m_filename_has_suffix(filename, ".sql") || m_filename_has_suffix(filename, ".dat"))) {
     gchar *db_name, *table_name;
     get_database_table_from_file(filename,"-",&db_name,&table_name);
-    if (check_skiplist(db_name, table_name)){
+    if (db_name != NULL && check_skiplist(db_name, table_name)){
       g_free(db_name);
       g_free(table_name);
       return NO_DATA;
