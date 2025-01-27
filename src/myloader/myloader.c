@@ -409,8 +409,6 @@ int main(int argc, char *argv[]) {
   /* Process list of tables to omit if specified */
   if (tables_skiplist_file)
     read_tables_skiplist(tables_skiplist_file, &errors);
-  if (tables_skipdata_file)
-    read_tables_skipdata(tables_skipdata_file, &errors);
   initialize_process(&conf);
   initialize_common();
   initialize_connection(MYLOADER);
