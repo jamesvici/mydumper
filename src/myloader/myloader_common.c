@@ -434,22 +434,7 @@ enum file_type get_file_type (const char * filename){
     return SCHEMA_CREATE;
 
   // if tables_skipdata_file exists, see if we are skipping data load
-if (tables_skipdata_file && (m_filename_has_suffix(filename, ".sql") || m_filename_has_suffix(filename, ".dat"))) {
-  gchar **split = g_strsplit(filename, ".", 2);
-  if (split && split[0] && split[1]) {
-    if (check_skipdata(split[0], split[1])) {
-      g_strfreev(split);
-      return NODATA;
-    }
-    g_strfreev(split);
-  }
-}
-
-  if (m_filename_has_suffix(filename, ".sql") )
-    return DATA;
-
-  // Be consistent with sql behavior
-  if (m_filename_has_suffix(filename, ".dat") && tables_skipdata_file) {
+  if (tables_skipdata_file && (m_filename_has_suffix(filename, ".sql") || m_filename_has_suffix(filename, ".dat"))) {
     gchar **split = g_strsplit(filename, ".", 2);
     if (split && split[0] && split[1]) {
       if (check_skipdata(split[0], split[1])) {
@@ -459,6 +444,9 @@ if (tables_skipdata_file && (m_filename_has_suffix(filename, ".sql") || m_filena
       g_strfreev(split);
     }
   }
+
+  if (m_filename_has_suffix(filename, ".sql") )
+    return DATA;
 
   if (m_filename_has_suffix(filename, ".dat"))
     return LOAD_DATA;
