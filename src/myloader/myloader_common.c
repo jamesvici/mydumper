@@ -448,8 +448,8 @@ if (m_filename_has_suffix(filename, ".sql") && tables_skipdata_file) {
   if (m_filename_has_suffix(filename, ".sql") )
     return DATA;
 
-  // if tables_skipdata_file exists, see if we are skipping data load
-  if (m_filename_has_suffix(filename, ".sql") && tables_skipdata_file) {
+  // Be consistent with sql behavior
+  if (m_filename_has_suffix(filename, ".dat") && tables_skipdata_file) {
     gchar **split = g_strsplit(filename, ".", 2);
     if (split && split[0] && split[1]) {
       if (check_skipdata(split[0], split[1])) {
